@@ -30,17 +30,7 @@
 
     /* Layout */
     .container{max-width:1120px;margin:0 auto;padding:0 1.2rem}
-    header{
-      position:sticky;
-      top:0;
-      z-index:120; /* más alto para quedar por encima de todo */
-      background:rgba(15,23,42,.7);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      transition: background-color .25s ease,
-                  box-shadow .25s ease,
-                  transform .35s ease-out;
-    }
+    header{position:sticky;top:0;z-index:120;background:rgba(15,23,42,.7);backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.06);transition:background-color .25s ease, box-shadow .25s ease, transform .35s ease-out}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
     .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;letter-spacing:.4px}
     .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;box-shadow:var(--shadow)}
@@ -92,64 +82,50 @@
     /* Footer */
     footer{padding:2.2rem 0;color:#9aa4b4;border-top:1px solid rgba(255,255,255,.06);background:#0a1222}
 
-/* Mobile */
-.drawer{display:none;}   /* Por defecto, SIEMPRE oculto */
-.mobile{display:none;}
-.nav-toggle{display:none;}
+    /* Mobile */
+    .drawer{display:none;}
+    .mobile{display:none;}
+    .nav-toggle{display:none;}
 
-@media (max-width: 960px){
-    header{
-    background:rgba(15,23,42,.97); /* fondo más sólido en mobile */
-    box-shadow:0 10px 25px rgba(0,0,0,.6);
-  }
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr}
+      .grid.cols-3{grid-template-columns:1fr}
+      .grid.cols-2{grid-template-columns:1fr}
+      .kpis{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+      .menu{display:none}
+      .mobile{display:block}
+      .nav-toggle{
+        display:inline-flex;
+        gap:.45rem;
+        align-items:center;
+        background:rgba(255,255,255,.06);
+        border:1px solid rgba(255,255,255,.1);
+        padding:.45rem .7rem;
+        border-radius:10px;
+      }
+      .drawer{
+        display:none;
+        position:fixed;
+        inset:64px 0 0 0;
+        background:rgba(10,18,34,.98);
+        backdrop-filter:blur(6px);
+        padding:1rem;
+      }
+      .drawer a{
+        display:block;
+        padding:.8rem;
+        border-bottom:1px solid rgba(255,255,255,.06);
+      }
+      .drawer.open{display:block;}
+    }
 
-  header.header-animate{
-    animation: headerSlideDown .35s ease-out forwards;
-  }
-
-  @keyframes headerSlideDown{
-    from{ transform:translateY(-100%); }
-    to{ transform:translateY(0); }
-  }
-  .hero{grid-template-columns:1fr}
-  .grid.cols-3{grid-template-columns:1fr}
-  .grid.cols-2{grid-template-columns:1fr}
-  .kpis{grid-template-columns:repeat(2,1fr)}
-  .two-col{grid-template-columns:1fr}
-  .menu{display:none}
-  .mobile{display:block}
-  .nav-toggle{
-    display:inline-flex;
-    gap:.45rem;
-    align-items:center;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.1);
-    padding:.45rem .7rem;
-    border-radius:10px;
-  }
-  .drawer{
-    display:none;
-    position:fixed;
-    inset:64px 0 0 0;
-    background:rgba(10,18,34,.98);
-    backdrop-filter:blur(6px);
-    padding:1rem;
-  }
-  .drawer a{
-    display:block;
-    padding:.8rem;
-    border-bottom:1px solid rgba(255,255,255,.06);
-  }
-  .drawer.open{display:block;}
-}
-
-/* Refuerzo extra por las dudas (escritorio): */
-@media (min-width: 961px){
-  #drawer{
-    display:none !important;
-  }
-}
-
+    /* Refuerzo extra por las dudas (escritorio): */
+    @media (min-width: 961px){
+      #drawer{
+        display:none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -411,19 +387,12 @@
     // Mobile nav drawer
     const openBtn = document.getElementById('openNav');
     const drawer = document.getElementById('drawer');
-    const headerEl = document.querySelector('header');
-
-    // Animación suave del header en mobile al cargar
-    if (headerEl && window.innerWidth <= 960) {
-      headerEl.classList.add('header-animate');
-    }
-
     if (openBtn) {
       openBtn.addEventListener('click', () => {
         const open = drawer.classList.toggle('open');
         openBtn.setAttribute('aria-expanded', String(open));
       });
-      drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
         drawer.classList.remove('open');
         openBtn.setAttribute('aria-expanded','false');
       }));
