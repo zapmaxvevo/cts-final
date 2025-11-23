@@ -82,23 +82,51 @@
     /* Footer */
     footer{padding:2.2rem 0;color:#9aa4b4;border-top:1px solid rgba(255,255,255,.06);background:#0a1222}
 
-    $1.drawer{display:none}
-    .mobile{display:none}
-    .nav-toggle{display:none}
+/* Mobile */
+.drawer{display:none;}   /* Por defecto, SIEMPRE oculto */
+.mobile{display:none;}
+.nav-toggle{display:none;}
 
-    @media (max-width: 960px){
-      .hero{grid-template-columns:1fr}
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-      .kpis{grid-template-columns:repeat(2,1fr)}
-      .two-col{grid-template-columns:1fr}
-      .menu{display:none}
-      .mobile{display:block}
-      .nav-toggle{display:inline-flex;gap:.45rem;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:.45rem .7rem;border-radius:10px}
-      .drawer{display:none;position:fixed;inset:64px 0 0 0;background:rgba(10,18,34,.98);backdrop-filter:blur(6px);padding:1rem}
-      .drawer a{display:block;padding:.8rem;border-bottom:1px solid rgba(255,255,255,.06)}
-      .drawer.open{display:block}
-    }
+@media (max-width: 960px){
+  .hero{grid-template-columns:1fr}
+  .grid.cols-3{grid-template-columns:1fr}
+  .grid.cols-2{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .two-col{grid-template-columns:1fr}
+  .menu{display:none}
+  .mobile{display:block}
+  .nav-toggle{
+    display:inline-flex;
+    gap:.45rem;
+    align-items:center;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+    padding:.45rem .7rem;
+    border-radius:10px;
+  }
+  .drawer{
+    display:none;
+    position:fixed;
+    inset:64px 0 0 0;
+    background:rgba(10,18,34,.98);
+    backdrop-filter:blur(6px);
+    padding:1rem;
+  }
+  .drawer a{
+    display:block;
+    padding:.8rem;
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+  .drawer.open{display:block;}
+}
+
+/* Refuerzo extra por las dudas (escritorio): */
+@media (min-width: 961px){
+  #drawer{
+    display:none !important;
+  }
+}
+
   </style>
 </head>
 <body>
