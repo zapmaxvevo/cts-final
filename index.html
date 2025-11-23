@@ -111,13 +111,14 @@
         background:rgba(10,18,34,.98);
         backdrop-filter:blur(6px);
         padding:1rem;
+        z-index: 1;
       }
       .drawer a{
         display:block;
         padding:.8rem;
         border-bottom:1px solid rgba(255,255,255,.06);
       }
-      .drawer.open{display:block;}
+      .drawer.open{display:block;height: fit-content;}
     }
 
     /* Refuerzo extra por las dudas (escritorio): */
@@ -387,16 +388,32 @@
     // Mobile nav drawer
     const openBtn = document.getElementById('openNav');
     const drawer = document.getElementById('drawer');
-    if (openBtn) {
+    const main   = document.querySelector('main'); // o document.getElementById('inicio')
+
+    if (openBtn && drawer && main) {
       openBtn.addEventListener('click', () => {
         const open = drawer.classList.toggle('open');
         openBtn.setAttribute('aria-expanded', String(open));
+
+        if (open) {
+          main.style.filter = 'blur(5px)';
+          main.style.webkitFilter = 'blur(5px)';
+        } else {
+          main.style.filter = 'none';
+          main.style.webkitFilter = 'none';
+        }
       });
-      drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-        drawer.classList.remove('open');
-        openBtn.setAttribute('aria-expanded','false');
-      }));
+
+      drawer.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => {
+          drawer.classList.remove('open');
+          openBtn.setAttribute('aria-expanded', 'false');
+          main.style.filter = 'none';
+          main.style.webkitFilter = 'none';
+        })
+      );
     }
+
 
     // Simple bar chart without external libs (Canvas 2D)
     const ctx = document.getElementById('chart').getContext('2d');
