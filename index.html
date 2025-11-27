@@ -1,134 +1,403 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Adicción Tecnológica y Bienestar Mental – CTS</title>
-  <meta name="description" content="Sitio educativo CTS sobre adicción tecnológica y bienestar mental: enfoque social, científico, tecnológico y ético." />
+  <meta name="description"
+    content="Sitio educativo CTS sobre adicción tecnológica y bienestar mental: enfoque social, científico, tecnológico y ético." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg: #0f172a;         /* slate-900 */
-      --panel: #111827;      /* gray-900 */
-      --soft: #1f2937;       /* gray-800 */
-      --muted: #9ca3af;      /* gray-400 */
-      --text: #e5e7eb;       /* gray-200 */
-      --brand: #22c55e;      /* green-500 */
-      --brand-2:#06b6d4;     /* cyan-500 */
-      --accent:#93c5fd;      /* blue-300 */
-      --danger:#ef4444;      /* red-500 */
-      --ok:#10b981;          /* emerald-500 */
-      --shadow: 0 10px 30px rgba(0,0,0,.3);
+    :root {
+      --bg: #0f172a;
+      /* slate-900 */
+      --panel: #111827;
+      /* gray-900 */
+      --soft: #1f2937;
+      /* gray-800 */
+      --muted: #9ca3af;
+      /* gray-400 */
+      --text: #e5e7eb;
+      /* gray-200 */
+      --brand: #22c55e;
+      /* green-500 */
+      --brand-2: #06b6d4;
+      /* cyan-500 */
+      --accent: #93c5fd;
+      /* blue-300 */
+      --danger: #ef4444;
+      /* red-500 */
+      --ok: #10b981;
+      /* emerald-500 */
+      --shadow: 0 10px 30px rgba(0, 0, 0, .3);
       --radius: 16px;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji"; background:linear-gradient(180deg,var(--bg),#0b1220 40%, var(--panel)); color:var(--text); line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
-    img{max-width:100%;display:block}
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(180deg, var(--bg), #0b1220 40%, var(--panel));
+      color: var(--text);
+      line-height: 1.6
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
 
     /* Layout */
-    .container{max-width:1120px;margin:0 auto;padding:0 1.2rem}
-    header{position:sticky;top:0;z-index:120;background:rgba(15,23,42,.7);backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.06);transition:background-color .25s ease, box-shadow .25s ease, transform .35s ease-out}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
-    .brand{display:flex;gap:.6rem;align-items:center;font-weight:800;letter-spacing:.4px}
-    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;box-shadow:var(--shadow)}
-    .brand .logo span{font-weight:800;color:#052014}
-    .menu{display:flex;gap:1rem;align-items:center}
-    .menu a{padding:.4rem .7rem;border-radius:10px;color:var(--text)}
-    .menu a:hover{background:rgba(255,255,255,.06)}
-    .cta{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#052014;font-weight:700;padding:.55rem .9rem;border:none;border-radius:12px;box-shadow:var(--shadow);}
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.2rem
+    }
 
-    .hero{padding:4.5rem 0 3rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}
-    .hero h1{font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.15;margin:.5rem 0}
-    .hero p.lead{color:var(--muted);font-size:1.05rem}
-    .card{background:linear-gradient(180deg,var(--soft),#0d1527);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card.pad{padding:1.2rem}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 120;
+      background: rgba(15, 23, 42, .7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      transition: background-color .25s ease, box-shadow .25s ease, transform .35s ease-out
+    }
 
-    .grid{display:grid;gap:1rem}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: .8rem 0
+    }
 
-    section{padding:3rem 0 2rem}
-    h2{font-size:clamp(1.3rem,2.2vw,1.8rem);margin:0 0 1rem}
-    h3{font-size:1.05rem;margin:1rem 0 .5rem;color:#cbd5e1}
-    .muted{color:var(--muted)}
-    .tag{display:inline-block;background:rgba(34,197,94,.12);color:#bbf7d0;border:1px solid rgba(34,197,94,.25);padding:.2rem .6rem;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.3px}
+    .brand {
+      display: flex;
+      gap: .6rem;
+      align-items: center;
+      font-weight: 800;
+      letter-spacing: .4px
+    }
 
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-    .kpis .kpi{padding:1rem;border-radius:14px;background:linear-gradient(180deg,#0c1426,#0a1222);border:1px solid rgba(255,255,255,.06);text-align:center}
-    .kpi .title{font-size:.78rem;color:var(--muted)}
-    .kpi .value{font-size:1.6rem;font-weight:800}
+    .brand .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow)
+    }
 
-    .pill{display:inline-block;padding:.25rem .6rem;border:1px solid rgba(255,255,255,.1);border-radius:999px;font-size:.75rem;color:#cbd5e1}
+    .brand .logo span {
+      font-weight: 800;
+      color: #052014
+    }
 
-    .two-col{display:grid;grid-template-columns:1.2fr .8fr;gap:1rem}
+    .menu {
+      display: flex;
+      gap: 1rem;
+      align-items: center
+    }
 
-    .table{width:100%;border-collapse:separate;border-spacing:0 8px}
-    .table th{font-size:.8rem;color:#a8b1c1;text-align:left;padding:.3rem .6rem}
-    .table td{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:.6rem .7rem}
-    .table tr td:first-child{border-top-left-radius:10px;border-bottom-left-radius:10px}
-    .table tr td:last-child{border-top-right-radius:10px;border-bottom-right-radius:10px}
+    .menu a {
+      padding: .4rem .7rem;
+      border-radius: 10px;
+      color: var(--text)
+    }
 
-    .panel{padding:1rem;border-radius:14px;background:linear-gradient(180deg,#0c1426,#0a1222);border:1px solid rgba(255,255,255,.06)}
+    .menu a:hover {
+      background: rgba(255, 255, 255, .06)
+    }
+
+    .cta {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #052014;
+      font-weight: 700;
+      padding: .55rem .9rem;
+      border: none;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 4.5rem 0 3rem;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 2rem;
+      align-items: center
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 3.2vw, 3rem);
+      line-height: 1.15;
+      margin: .5rem 0
+    }
+
+    .hero p.lead {
+      color: var(--muted);
+      font-size: 1.05rem
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--soft), #0d1527);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow)
+    }
+
+    .card.pad {
+      padding: 1.2rem
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr)
+    }
+
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, 1fr)
+    }
+
+    section {
+      padding: 3rem 0 2rem
+    }
+
+    h2 {
+      font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+      margin: 0 0 1rem
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 1rem 0 .5rem;
+      color: #cbd5e1
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(34, 197, 94, .12);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, .25);
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .3px
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem
+    }
+
+    .kpis .kpi {
+      padding: 1rem;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #0c1426, #0a1222);
+      border: 1px solid rgba(255, 255, 255, .06);
+      text-align: center
+    }
+
+    .kpi .title {
+      font-size: .78rem;
+      color: var(--muted)
+    }
+
+    .kpi .value {
+      font-size: 1.6rem;
+      font-weight: 800
+    }
+
+    .pill {
+      display: inline-block;
+      padding: .25rem .6rem;
+      border: 1px solid rgba(255, 255, 255, .1);
+      border-radius: 999px;
+      font-size: .75rem;
+      color: #cbd5e1
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 1rem
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 8px
+    }
+
+    .table th {
+      font-size: .8rem;
+      color: #a8b1c1;
+      text-align: left;
+      padding: .3rem .6rem
+    }
+
+    .table td {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .06);
+      padding: .6rem .7rem
+    }
+
+    .table tr td:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px
+    }
+
+    .table tr td:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px
+    }
+
+    .panel {
+      padding: 1rem;
+      border-radius: 14px;
+      background: linear-gradient(180deg, #0c1426, #0a1222);
+      border: 1px solid rgba(255, 255, 255, .06)
+    }
 
     /* Test */
-    .question{margin:.8rem 0;padding:.8rem;border:1px dashed rgba(255,255,255,.12);border-radius:12px}
-    .question legend{font-weight:700}
-    .choices{display:grid;gap:.4rem;margin-top:.4rem}
-    .choices label{display:flex;gap:.5rem;align-items:flex-start}
+    .question {
+      margin: .8rem 0;
+      padding: .8rem;
+      border: 1px dashed rgba(255, 255, 255, .12);
+      border-radius: 12px
+    }
+
+    .question legend {
+      font-weight: 700
+    }
+
+    .choices {
+      display: grid;
+      gap: .4rem;
+      margin-top: .4rem
+    }
+
+    .choices label {
+      display: flex;
+      gap: .5rem;
+      align-items: flex-start
+    }
 
     /* Footer */
-    footer{padding:2.2rem 0;color:#9aa4b4;border-top:1px solid rgba(255,255,255,.06);background:#0a1222}
+    footer {
+      padding: 2.2rem 0;
+      color: #9aa4b4;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      background: #0a1222
+    }
 
     /* Mobile */
-    .drawer{display:none;}
-    .mobile{display:none;}
-    .nav-toggle{display:none;}
+    .drawer {
+      display: none;
+    }
 
-    @media (max-width: 960px){
-      .hero{grid-template-columns:1fr}
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-      .kpis{grid-template-columns:repeat(2,1fr)}
-      .two-col{grid-template-columns:1fr}
-      .menu{display:none}
-      .mobile{display:block}
-      .nav-toggle{
-        display:inline-flex;
-        gap:.45rem;
-        align-items:center;
-        background:rgba(255,255,255,.06);
-        border:1px solid rgba(255,255,255,.1);
-        padding:.45rem .7rem;
-        border-radius:10px;
+    .mobile {
+      display: none;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    @media (max-width: 960px) {
+      .hero {
+        grid-template-columns: 1fr
       }
-      .drawer{
-        display:none;
-        position:fixed;
-        inset:64px 0 0 0;
-        background:rgba(10,18,34,.98);
-        backdrop-filter:blur(6px);
-        padding:1rem;
+
+      .grid.cols-3 {
+        grid-template-columns: 1fr
+      }
+
+      .grid.cols-2 {
+        grid-template-columns: 1fr
+      }
+
+      .kpis {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .menu {
+        display: none
+      }
+
+      .mobile {
+        display: block
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        gap: .45rem;
+        align-items: center;
+        background: rgba(255, 255, 255, .06);
+        border: 1px solid rgba(255, 255, 255, .1);
+        padding: .45rem .7rem;
+        border-radius: 10px;
+      }
+
+      .drawer {
+        display: none;
+        position: fixed;
+        inset: 64px 0 0 0;
+        background: rgba(10, 18, 34, .98);
+        backdrop-filter: blur(6px);
+        padding: 1rem;
         z-index: 1;
       }
-      .drawer a{
-        display:block;
-        padding:.8rem;
-        border-bottom:1px solid rgba(255,255,255,.06);
+
+      .drawer a {
+        display: block;
+        padding: .8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
       }
-      .drawer.open{display:block;height: fit-content;}
+
+      .drawer.open {
+        display: block;
+        height: fit-content;
+      }
     }
 
     /* Refuerzo extra por las dudas (escritorio): */
-    @media (min-width: 961px){
-      #drawer{
-        display:none !important;
+    @media (min-width: 961px) {
+      #drawer {
+        display: none !important;
       }
     }
   </style>
 </head>
+
 <body>
   <header aria-label="Barra de navegación principal">
     <div class="container nav">
@@ -160,22 +429,37 @@
     </div>
   </header>
 
-<main id="inicio" class="container">
+  <main id="inicio" class="container">
     <section class="hero" aria-labelledby="t-hero">
       <div class="card pad">
         <span class="tag">Proyecto Web · CTS</span>
         <h1 id="t-hero">Adicción Tecnológica y Bienestar Mental</h1>
-        <p class="lead">Analizamos el impacto social, científico, tecnológico y ético de los hábitos digitales. Informamos con evidencia, proponemos pautas de uso saludable y fomentamos una reflexión crítica — sin demonizar la innovación.</p>
+        <p class="lead">Analizamos el impacto social, científico, tecnológico y ético de los hábitos digitales.
+          Informamos con evidencia, proponemos pautas de uso saludable y fomentamos una reflexión crítica — sin
+          demonizar la innovación.</p>
         <div class="kpis" aria-label="Indicadores destacados">
-          <div class="kpi"><div class="title">Promedio de pantallas/día</div><div class="value" id="k1">—</div></div>
-          <div class="kpi"><div class="title">Sueño recomendado</div><div class="value">7–9h</div></div>
-          <div class="kpi"><div class="title">Pausas sugeridas</div><div class="value">5–10 min/h</div></div>
-          <div class="kpi"><div class="title">Objetivo</div><div class="value">Equilibrio</div></div>
+          <div class="kpi">
+            <div class="title">Promedio de pantallas/día</div>
+            <div class="value" id="k1">—</div>
+          </div>
+          <div class="kpi">
+            <div class="title">Sueño recomendado</div>
+            <div class="value">7–9h</div>
+          </div>
+          <div class="kpi">
+            <div class="title">Pausas sugeridas</div>
+            <div class="value">5–10 min/h</div>
+          </div>
+          <div class="kpi">
+            <div class="title">Objetivo</div>
+            <div class="value">Equilibrio</div>
+          </div>
         </div>
       </div>
       <div class="card pad" aria-label="Ilustración y objetivo">
         <h3>¿Qué buscamos?</h3>
-        <p class="muted">Promover un <strong>uso consciente</strong> de tecnologías: identificar señales de alerta, comprender efectos en el bienestar, y adoptar estrategias simples de autocuidado digital.</p>
+        <p class="muted">Promover un <strong>uso consciente</strong> de tecnologías: identificar señales de alerta,
+          comprender efectos en el bienestar, y adoptar estrategias simples de autocuidado digital.</p>
         <ul>
           <li>Información clara basada en evidencia</li>
           <li>Consejos prácticos y test de autoevaluación</li>
@@ -188,7 +472,8 @@
       <div class="two-col">
         <div class="card pad">
           <h2 id="t-adiccion">¿Qué es la adicción tecnológica?</h2>
-          <p>Es un <strong>patrón problemático</strong> de interacción con dispositivos o plataformas (redes, juegos, mensajería) que afecta áreas de la vida: sueño, estudio/trabajo, relaciones, estado de ánimo.</p>
+          <p>Es un <strong>patrón problemático</strong> de interacción con dispositivos o plataformas (redes, juegos,
+            mensajería) que afecta áreas de la vida: sueño, estudio/trabajo, relaciones, estado de ánimo.</p>
           <div class="grid cols-2">
             <div class="panel">
               <h3>Señales de alerta</h3>
@@ -212,13 +497,33 @@
         </div>
         <div class="card pad">
           <h3>Dimensión científica</h3>
-          <p class="muted">La evidencia sugiere que el <strong>exceso</strong> de pantallas se asocia con peor calidad de sueño, distracción sostenida y mayor estrés. No todo uso es dañino: importa <em>tiempo, contexto y propósito</em>.</p>
+          <p class="muted">La evidencia sugiere que el <strong>exceso</strong> de pantallas se asocia con peor calidad
+            de sueño, distracción sostenida y mayor estrés. No todo uso es dañino: importa <em>tiempo, contexto y
+              propósito</em>.</p>
           <table class="table" aria-label="Relación entre hábitos y efectos">
-            <thead><tr><th>Hábito</th><th>Riesgo</th><th>Recomendación</th></tr></thead>
+            <thead>
+              <tr>
+                <th>Hábito</th>
+                <th>Riesgo</th>
+                <th>Recomendación</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Uso nocturno intenso</td><td>Luz azul → sueño</td><td>Modo noche, cortar 60–90min antes</td></tr>
-              <tr><td>Notificaciones sin filtro</td><td>Interrupciones</td><td>Silenciar grupos, modos enfoque</td></tr>
-              <tr><td>Gaming maratónico</td><td>Falta de pausas</td><td>Regla 50/10 y estiramientos</td></tr>
+              <tr>
+                <td>Uso nocturno intenso</td>
+                <td>Luz azul → sueño</td>
+                <td>Modo noche, cortar 60–90min antes</td>
+              </tr>
+              <tr>
+                <td>Notificaciones sin filtro</td>
+                <td>Interrupciones</td>
+                <td>Silenciar grupos, modos enfoque</td>
+              </tr>
+              <tr>
+                <td>Gaming maratónico</td>
+                <td>Falta de pausas</td>
+                <td>Regla 50/10 y estiramientos</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -229,7 +534,8 @@
       <div class="grid cols-3">
         <article class="card pad">
           <h2 id="t-bienestar">Bienestar mental</h2>
-          <p class="muted">Buscamos equilibrio: tecnología como herramienta para aprender, conectar y crear, sin desplazar descanso, movimiento y vínculos reales.</p>
+          <p class="muted">Buscamos equilibrio: tecnología como herramienta para aprender, conectar y crear, sin
+            desplazar descanso, movimiento y vínculos reales.</p>
           <ul>
             <li><strong>Higiene del sueño:</strong> rutina, luz baja, sin pantalla en cama</li>
             <li><strong>Atención plena:</strong> notificaciones por lotes, no en tiempo real</li>
@@ -246,7 +552,8 @@
         </article>
         <article class="card pad">
           <h3>Uso positivo</h3>
-          <p class="muted">Comunidades de aprendizaje, cursos abiertos, seguimiento de salud y creatividad digital pueden <strong>potenciar el bienestar</strong> si se usan con propósito.</p>
+          <p class="muted">Comunidades de aprendizaje, cursos abiertos, seguimiento de salud y creatividad digital
+            pueden <strong>potenciar el bienestar</strong> si se usan con propósito.</p>
         </article>
       </div>
     </section>
@@ -257,7 +564,8 @@
         <div class="grid cols-2">
           <div class="panel">
             <h3>Dimensión social</h3>
-            <p class="muted">Impacto en vínculos, escuela, trabajo y participación cívica. La brecha digital condiciona oportunidades.</p>
+            <p class="muted">Impacto en vínculos, escuela, trabajo y participación cívica. La brecha digital condiciona
+              oportunidades.</p>
           </div>
           <div class="panel">
             <h3>Dimensión tecnológica</h3>
@@ -265,11 +573,13 @@
           </div>
           <div class="panel">
             <h3>Dimensión científica</h3>
-            <p class="muted">Evidencia de efectos en sueño, atención y ánimo. Importa el <em>uso</em>, no la tecnología en sí.</p>
+            <p class="muted">Evidencia de efectos en sueño, atención y ánimo. Importa el <em>uso</em>, no la tecnología
+              en sí.</p>
           </div>
           <div class="panel">
             <h3>Dimensión ética</h3>
-            <p class="muted">Usos vs. abusos: transparencia, autonomía del usuario, diseño con bienestar por defecto.</p>
+            <p class="muted">Usos vs. abusos: transparencia, autonomía del usuario, diseño con bienestar por defecto.
+            </p>
           </div>
         </div>
       </div>
@@ -279,7 +589,9 @@
     <section id="estado" aria-labelledby="t-estado">
       <div class="card pad">
         <h2 id="t-estado">Estado y Políticas de Ciencia y Tecnología</h2>
-        <p class="muted">El Estado cumple un rol central en la orientación, regulación y financiamiento del desarrollo científico-tecnológico. Desde la perspectiva CTS, esto responde a la necesidad de equilibrar innovación, bienestar social y gestión de riesgos.</p>
+        <p class="muted">El Estado cumple un rol central en la orientación, regulación y financiamiento del desarrollo
+          científico-tecnológico. Desde la perspectiva CTS, esto responde a la necesidad de equilibrar innovación,
+          bienestar social y gestión de riesgos.</p>
 
         <div class="grid cols-2">
           <div class="panel">
@@ -308,7 +620,9 @@
     <section id="innovacion" aria-labelledby="t-innovacion">
       <div class="card pad">
         <h2 id="t-innovacion">Innovación y Sociedad</h2>
-        <p class="muted">La innovación es un proceso social que convierte ideas y conocimientos en mejoras concretas dentro de un sistema. Va más allá de la creatividad: requiere actores, instituciones y un contexto que permita que los cambios tecnológicos sean adoptados y difundidos.</p>
+        <p class="muted">La innovación es un proceso social que convierte ideas y conocimientos en mejoras concretas
+          dentro de un sistema. Va más allá de la creatividad: requiere actores, instituciones y un contexto que permita
+          que los cambios tecnológicos sean adoptados y difundidos.</p>
 
         <div class="grid cols-2">
           <div class="panel">
@@ -333,11 +647,27 @@
       </div>
     </section>
 
-    <section id="datos"" aria-labelledby="t-datos">
+    <section id="ejemplos-uso" aria-labelledby="t-ejemplos-uso">
       <div class="card pad">
-        <h2 id="t-datos">Datos y estadísticas</h2>
-        <p class="muted">Visualización simple de tiempo de pantalla estimado por día. (Ejemplo educativo)</p>
-        <canvas id="chart" height="120" aria-label="Gráfico de barras de horas de pantalla" role="img"></canvas>
+        <h2 id="t-ejemplos-uso">Ejemplos reales de tiempo en pantalla</h2>
+        <p class="muted">Comparación de registros de uso semanal en dos dispositivos distintos. Estos ejemplos permiten
+          visualizar patrones reales de consumo digital y reflexionar sobre los hábitos cotidianos.</p>
+
+
+        <div class="grid cols-2" style="margin-top:1rem">
+          <div class="panel">
+            <h3 style="margin-top:0">iPhone – Registro semanal</h3>
+            <img src="tiempo_en_pantalla.jpeg" alt="Ejemplo de tiempo en pantalla en iPhone"
+              style="border-radius:12px;box-shadow:var(--shadow)">
+          </div>
+
+
+          <div class="panel">
+            <h3 style="margin-top:0">Android – Registro diario</h3>
+            <img src="tiempo_em_pantalla_maxi.jpeg" alt="Ejemplo de tiempo en pantalla en Android"
+              style="border-radius:12px;box-shadow:var(--shadow)">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -406,7 +736,8 @@
         <h2 id="t-contacto">Contacto y ayuda</h2>
         <div class="grid cols-2">
           <div class="panel">
-            <p>Si sentís que el uso de tecnología afecta tu bienestar, hablalo con alguien de confianza y consultá a profesionales de salud.</p>
+            <p>Si sentís que el uso de tecnología afecta tu bienestar, hablalo con alguien de confianza y consultá a
+              profesionales de salud.</p>
             <ul class="muted">
               <li>Líneas de apoyo locales</li>
               <li>Orientación psicológica universitaria</li>
@@ -415,16 +746,20 @@
           </div>
           <form class="panel" id="contactForm" novalidate>
             <label>Tu nombre
-              <input required name="nombre" placeholder="Nombre" style="width:100%;margin-top:.3rem;padding:.6rem;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:var(--text)">
+              <input required name="nombre" placeholder="Nombre"
+                style="width:100%;margin-top:.3rem;padding:.6rem;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:var(--text)">
             </label>
             <label style="display:block;margin-top:.7rem">Tu correo (opcional)
-              <input type="email" name="email" placeholder="correo@ejemplo.com" style="width:100%;margin-top:.3rem;padding:.6rem;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:var(--text)">
+              <input type="email" name="email" placeholder="correo@ejemplo.com"
+                style="width:100%;margin-top:.3rem;padding:.6rem;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:var(--text)">
             </label>
             <label style="display:block;margin-top:.7rem">Mensaje
-              <textarea required name="msg" rows="4" placeholder="Escribí tu consulta" style="width:100%;margin-top:.3rem;padding:.6rem;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:var(--text)"></textarea>
+              <textarea required name="msg" rows="4" placeholder="Escribí tu consulta"
+                style="width:100%;margin-top:.3rem;padding:.6rem;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03);color:var(--text)"></textarea>
             </label>
             <button class="cta" style="margin-top:.8rem" type="submit">Enviar</button>
-            <p id="contactOk" class="muted" style="display:none;margin-top:.6rem">¡Gracias! Tu mensaje fue registrado (demo).</p>
+            <p id="contactOk" class="muted" style="display:none;margin-top:.6rem">¡Gracias! Tu mensaje fue registrado
+              (demo).</p>
           </form>
         </div>
       </div>
@@ -432,7 +767,8 @@
   </main>
 
   <footer aria-label="Pie de página">
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between">
+    <div class="container"
+      style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between">
       <small>© 2025 · Proyecto CTS · Universidad de Belgrano (demo estudiantil)</small>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap">
         <span class="pill">Usos vs. Abusos</span>
@@ -446,7 +782,7 @@
     // Mobile nav drawer
     const openBtn = document.getElementById('openNav');
     const drawer = document.getElementById('drawer');
-    const main   = document.querySelector('main'); // o document.getElementById('inicio')
+    const main = document.querySelector('main'); // o document.getElementById('inicio')
 
     if (openBtn && drawer && main) {
       openBtn.addEventListener('click', () => {
@@ -475,65 +811,66 @@
 
     // Simple bar chart without external libs (Canvas 2D)
     const ctx = document.getElementById('chart').getContext('2d');
-    const data = { labels:["L","M","X","J","V","S","D"], values:[4.5,5.2,6.0,3.8,5.9,4.0,3.2] };
+    const data = { labels: ["L", "M", "X", "J", "V", "S", "D"], values: [4.5, 5.2, 6.0, 3.8, 5.9, 4.0, 3.2] };
     const max = Math.max(...data.values) + 1;
     const W = ctx.canvas.width = ctx.canvas.clientWidth;
     const H = ctx.canvas.height = 200;
-    const pad = 32; const bw = (W - pad*2) / data.values.length - 14; const base = H - pad;
-    ctx.clearRect(0,0,W,H);
+    const pad = 32; const bw = (W - pad * 2) / data.values.length - 14; const base = H - pad;
+    ctx.clearRect(0, 0, W, H);
     ctx.font = '12px Inter'; ctx.fillStyle = '#9ca3af';
     // Axes
-    ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.beginPath(); ctx.moveTo(pad,pad); ctx.lineTo(pad,base); ctx.lineTo(W-pad,base); ctx.stroke();
+    ctx.strokeStyle = 'rgba(255,255,255,.12)'; ctx.beginPath(); ctx.moveTo(pad, pad); ctx.lineTo(pad, base); ctx.lineTo(W - pad, base); ctx.stroke();
     // Bars
-    data.values.forEach((v,i)=>{
-      const x = pad + i*((W-pad*2)/data.values.length) + 7;
-      const h = (v/max) * (H - pad*2);
+    data.values.forEach((v, i) => {
+      const x = pad + i * ((W - pad * 2) / data.values.length) + 7;
+      const h = (v / max) * (H - pad * 2);
       const y = base - h;
-      const grad = ctx.createLinearGradient(0,y,0,base);
-      grad.addColorStop(0,'#22c55e'); grad.addColorStop(1,'#06b6d4');
-      ctx.fillStyle = grad; ctx.fillRect(x,y,bw,h);
-      ctx.fillStyle = '#cbd5e1'; ctx.fillText(data.labels[i], x + bw/2 - 4, base + 14);
+      const grad = ctx.createLinearGradient(0, y, 0, base);
+      grad.addColorStop(0, '#22c55e'); grad.addColorStop(1, '#06b6d4');
+      ctx.fillStyle = grad; ctx.fillRect(x, y, bw, h);
+      ctx.fillStyle = '#cbd5e1'; ctx.fillText(data.labels[i], x + bw / 2 - 4, base + 14);
     });
 
     // KPI auto: promedio de pantalla
-    const avg = (data.values.reduce((a,b)=>a+b,0)/data.values.length).toFixed(1);
+    const avg = (data.values.reduce((a, b) => a + b, 0) / data.values.length).toFixed(1);
     document.getElementById('k1').textContent = avg + ' h';
 
     // Quiz scoring
     const quiz = document.getElementById('quiz');
     const result = document.getElementById('result');
-    quiz.addEventListener('submit', (e)=>{
+    quiz.addEventListener('submit', (e) => {
       e.preventDefault();
       const form = new FormData(quiz);
       let score = 0; let answered = 0;
-      ['q1','q2','q3','q4'].forEach(q=>{
-        const v = form.get(q); if(v!==null){score += Number(v); answered++;}
+      ['q1', 'q2', 'q3', 'q4'].forEach(q => {
+        const v = form.get(q); if (v !== null) { score += Number(v); answered++; }
       });
-      if(answered<4){
-        result.style.display='block';
+      if (answered < 4) {
+        result.style.display = 'block';
         result.innerHTML = '<strong>Completá todas las preguntas.</strong>';
         return;
       }
-      let msg=''; let tone='';
-      if(score <= 2){ msg = 'Tus hábitos parecen bastante saludables. \n ✔ Mantené pausas y rutina de sueño.'; tone = 'ok'; }
-      else if(score <= 5){ msg = 'Estás en un punto intermedio. \n • Probá silenciar notificaciones y cortar pantallas antes de dormir.'; tone = 'warn'; }
+      let msg = ''; let tone = '';
+      if (score <= 2) { msg = 'Tus hábitos parecen bastante saludables. \n ✔ Mantené pausas y rutina de sueño.'; tone = 'ok'; }
+      else if (score <= 5) { msg = 'Estás en un punto intermedio. \n • Probá silenciar notificaciones y cortar pantallas antes de dormir.'; tone = 'warn'; }
       else { msg = 'Alerta: hay señales de uso excesivo. \n • Definí límites de tiempo, aplicá descansos regulares y pedí apoyo si lo necesitás.'; tone = 'bad'; }
-      result.style.display='block';
+      result.style.display = 'block';
       result.style.borderColor = 'rgba(255,255,255,.12)';
       result.innerHTML = `<div style="display:flex;gap:.6rem;align-items:flex-start">
-        <div style="font-size:1.2rem">${tone==='ok'?'✅':tone==='warn'?'⚠️':'🛑'}</div>
-        <div><strong>Resultado:</strong> ${score} puntos<br><span class="muted">${msg.replace(/\n/g,'<br>')}</span></div>
+        <div style="font-size:1.2rem">${tone === 'ok' ? '✅' : tone === 'warn' ? '⚠️' : '🛑'}</div>
+        <div><strong>Resultado:</strong> ${score} puntos<br><span class="muted">${msg.replace(/\n/g, '<br>')}</span></div>
       </div>`;
     });
 
     // Contact demo
     const contactForm = document.getElementById('contactForm');
     const contactOk = document.getElementById('contactOk');
-    contactForm.addEventListener('submit', (e)=>{
+    contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      contactOk.style.display='block';
+      contactOk.style.display = 'block';
       contactForm.reset();
     });
   </script>
 </body>
+
 </html>
